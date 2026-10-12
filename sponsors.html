@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sponsors — NXT</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="nav">
+      <a class="brand" href="index.html">NXT<span>.</span></a>
+      <nav class="links">
+        <a href="index.html">Home</a>
+        <a href="tournaments.html">Tournaments</a>
+        <a href="creators.html">Creators</a>
+        <a href="collab.html">Collab</a>
+        <a href="shop.html">Shop</a>
+        <a href="sponsors.html" class="active">Sponsors</a>
+      </nav>
+      <div class="navright">
+        <button class="button outline cart-btn" onclick="openCart()">Cart <span class="cart-count" style="display:none">0</span></button>
+        <a class="button" href="https://discord.gg/Bxsw3Aam2" target="_blank" rel="noreferrer">Join Discord ↗</a>
+      </div>
+    </header>
+
+    <main>
+      <div class="page-hero">
+        <div class="kicker">For brands</div>
+        <h1>Partner with what’s next.</h1>
+        <p class="muted" style="max-width:460px">NXT is a growing South African creator and gaming community. We run tournaments, content and real connections. Here’s how brands can show up.</p>
+      </div>
+
+      <section class="section" style="border-top:none;padding-top:8px">
+        <div class="sectionhead">
+          <div><div class="kicker">Packages</div><h2>Sponsorship options</h2></div>
+          <p>Starting points — we can tailor anything.</p>
+        </div>
+        <div class="grid-3">
+          <div class="package">
+            <div class="tag">Starter</div>
+            <h3>Community Support</h3>
+            <div class="price-tag">From R2 500</div>
+            <ul>
+              <li>Logo on website Sponsors page</li>
+              <li>Mention in Discord announcements</li>
+              <li>Shoutout during 1 community event</li>
+            </ul>
+            <a class="button outline" href="#contact" style="width:100%">Enquire ↗</a>
+          </div>
+          <div class="package" style="border-color:var(--blue)">
+            <div class="tag" style="color:#75baff">Popular</div>
+            <h3>Tournament Partner</h3>
+            <div class="price-tag">From R7 500</div>
+            <ul>
+              <li>Everything in Starter</li>
+              <li>Logo on tournament pages & stream overlays</li>
+              <li>Named support of one weekly cup</li>
+              <li>Product / code drop to participants</li>
+            </ul>
+            <a class="button" href="#contact" style="width:100%">Enquire ↗</a>
+          </div>
+          <div class="package">
+            <div class="tag">Custom</div>
+            <h3>Season / Title Partner</h3>
+            <div class="price-tag">Let’s talk</div>
+            <ul>
+              <li>Full season presence</li>
+              <li>Creator integrations</li>
+              <li>Merch or content collabs</li>
+              <li>Custom activation ideas</li>
+            </ul>
+            <a class="button outline" href="#contact" style="width:100%">Enquire ↗</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="sectionhead">
+          <div><div class="kicker">Why NXT</div><h2>What you actually get</h2></div>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="cardicon">01</div>
+            <h3>Real community</h3>
+            <p>Not just numbers — people who show up for tournaments, Discord and content.</p>
+          </article>
+          <article class="card">
+            <div class="cardicon">02</div>
+            <h3>South African focus</h3>
+            <p>Built for local creators and gamers. SAST-friendly events and culture.</p>
+          </article>
+          <article class="card">
+            <div class="cardicon">03</div>
+            <h3>Flexible activations</h3>
+            <p>Tournaments, creator shoutouts, merch, Discord presence — we build around your goals.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="sectionhead">
+          <div><div class="kicker">Get in touch</div><h2>Start a conversation</h2></div>
+          <p>Tell us what you’re looking for. We’ll reply with ideas that fit.</p>
+        </div>
+        <div class="feature">
+          <form class="panel" name="nxt-sponsor" method="POST" data-netlify="true" netlify-honeypot="bot-field" style="padding:26px">
+            <input type="hidden" name="form-name" value="nxt-sponsor">
+            <p style="display:none"><label>Don’t fill: <input name="bot-field"></label></p>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" name="name" required placeholder="Your name">
+              </div>
+              <div class="form-group">
+                <label>Brand / Company</label>
+                <input type="text" name="brand" required placeholder="Company name">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" name="email" required placeholder="you@brand.com">
+            </div>
+            <div class="form-group">
+              <label>What are you interested in?</label>
+              <select name="interest">
+                <option>Tournament partnership</option>
+                <option>Community / Discord presence</option>
+                <option>Creator integrations</option>
+                <option>Custom idea</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea name="message" rows="4" required placeholder="Tell us a bit about your goals..."></textarea>
+            </div>
+            <button type="submit" class="button" style="width:100%;padding:14px">Send enquiry ↗</button>
+          </form>
+          <div class="featurebox blue">
+            <div class="tag">Prefer direct?</div>
+            <h3>Message us on Discord</h3>
+            <p>Reach out to the NXT team in Discord for faster conversations about partnerships.</p>
+            <a class="button" href="https://discord.gg/Bxsw3Aam2" target="_blank" rel="noreferrer" style="margin-top:12px;background:#071321;color:#fff">Open Discord ↗</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a class="brand" href="index.html">NXT<span>.</span></a>
+      <span>Creators. Competition. Community.</span>
+      <span>© 2026 NXT · South Africa</span>
+    </footer>
+  </div>
+
+  <div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-header"><strong>Your Cart</strong><button class="outline" onclick="closeCart()" style="padding:6px 12px">Close</button></div>
+    <div class="cart-body" id="cart-body"></div>
+    <div class="cart-footer">
+      <div class="cart-total"><span>Total</span><span id="cart-total-value">R 0.00</span></div>
+      <a class="button" href="shop.html#checkout" style="width:100%" onclick="closeCart()">Checkout ↗</a>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>

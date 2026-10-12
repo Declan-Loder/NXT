@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NXT — Creator Community</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="nav">
+      <a class="brand" href="index.html">NXT<span>.</span></a>
+      <nav class="links">
+        <a href="index.html" class="active">Home</a>
+        <a href="tournaments.html">Tournaments</a>
+        <a href="creators.html">Creators</a>
+        <a href="collab.html">Collab</a>
+        <a href="shop.html">Shop</a>
+        <a href="sponsors.html">Sponsors</a>
+      </nav>
+      <div class="navright">
+        <button class="button outline cart-btn" onclick="openCart()">Cart <span class="cart-count" style="display:none">0</span></button>
+        <a class="button" href="https://discord.gg/Bxsw3Aam2" target="_blank" rel="noreferrer">Join Discord ↗</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <div class="eyebrow">● A new kind of creator community</div>
+          <h1>Your next<br>chapter is <em>here.</em></h1>
+          <p class="lead">A home for creators, gamers and the people building something bigger. Find your people, compete, create and grow with NXT.</p>
+          <div class="actions">
+            <a class="button" href="https://discord.gg/Bxsw3Aam2" target="_blank" rel="noreferrer">Become part of NXT ↗</a>
+            <a class="button outline" href="tournaments.html">Explore tournaments</a>
+          </div>
+          <div class="micro">CREATORS · COMPETITION · COMMUNITY</div>
+        </div>
+        <div class="visual">
+          <div class="visualtop"><span>NXT / COMMUNITY HUB</span><span class="live">● LIVE</span></div>
+          <div class="nxtmark"><div class="bigmark">N<span>X</span>T</div></div>
+          <div class="visualbottom"><span>South Africa, next up</span><span>EST. 2026</span></div>
+        </div>
+      </section>
+
+      <div class="stats">
+        <div class="stat"><b>Creators first</b><span>A place to build your name</span></div>
+        <div class="stat"><b>Play together</b><span>Community-led competition</span></div>
+        <div class="stat"><b>Grow together</b><span>More than just a stream</span></div>
+      </div>
+
+      <section class="section">
+        <div class="sectionhead">
+          <div><div class="kicker">What is NXT?</div><h2>More than a name.<br>A place to belong.</h2></div>
+          <p>Gaming, content and community under one roof — with room to grow as the movement grows.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="cardicon">◉</div>
+            <h3>Creator network</h3>
+            <p>Connect with streamers and creators who want to make something of their passion.</p>
+            <a href="creators.html">Meet the creators ↗</a>
+          </article>
+          <article class="card">
+            <div class="cardicon">⌁</div>
+            <h3>Tournaments</h3>
+            <p>Live results, standings and registration for community competitions.</p>
+            <a href="tournaments.html">See tournaments ↗</a>
+          </article>
+          <article class="card">
+            <div class="cardicon">✳</div>
+            <h3>Collab board</h3>
+            <p>Find editors, duo partners, designers or people to build with.</p>
+            <a href="collab.html">Open collab board ↗</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="banner">
+          <div>
+            <div class="kicker">Early days. Open doors.</div>
+            <h2>Be part of what's next.</h2>
+            <p>Create, compete, collaborate or help build NXT.</p>
+          </div>
+          <a class="button" href="https://discord.gg/Bxsw3Aam2" target="_blank" rel="noreferrer">Get involved ↗</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a class="brand" href="index.html">NXT<span>.</span></a>
+      <span>Creators. Competition. Community.</span>
+      <span>© 2026 NXT · South Africa</span>
+    </footer>
+  </div>
+
+  <div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-header"><strong>Your Cart</strong><button class="outline" onclick="closeCart()" style="padding:6px 12px">Close</button></div>
+    <div class="cart-body" id="cart-body"></div>
+    <div class="cart-footer">
+      <div class="cart-total"><span>Total</span><span id="cart-total-value">R 0.00</span></div>
+      <a class="button" href="shop.html#checkout" style="width:100%" onclick="closeCart()">Checkout ↗</a>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>

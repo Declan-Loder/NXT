@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tournaments — NXT</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="nav">
+      <a class="brand" href="index.html">NXT<span>.</span></a>
+      <nav class="links">
+        <a href="index.html">Home</a>
+        <a href="tournaments.html" class="active">Tournaments</a>
+        <a href="creators.html">Creators</a>
+        <a href="collab.html">Collab</a>
+        <a href="shop.html">Shop</a>
+        <a href="sponsors.html">Sponsors</a>
+      </nav>
+      <div class="navright">
+        <button class="button outline cart-btn" onclick="openCart()">Cart <span class="cart-count" style="display:none">0</span></button>
+        <a class="button" href="https://discord.gg/Bxsw3Aam2" target="_blank" rel="noreferrer">Join Discord ↗</a>
+      </div>
+    </header>
+
+    <main>
+      <div class="page-hero">
+        <div class="kicker">Competition</div>
+        <h1 id="tournament-title">TEAZERS FC 26 — Group Standings · Season 1</h1>
+        <p class="muted" id="tournament-subtitle" style="max-width:480px">Free Entry · One Champion · Presented by TEAZERS_0</p>
+      </div>
+
+      <!-- GROUP STANDINGS -->
+      <section class="section" style="border-top:none;padding-top:8px">
+        <div class="sectionhead">
+          <div>
+            <div class="kicker">Season 1</div>
+            <h2>Group standings</h2>
+          </div>
+          <span class="live-badge">Live from data.js</span>
+        </div>
+        <div class="grid-2" id="groups-container" style="gap:16px">
+          <!-- Groups A–D rendered by app.js -->
+        </div>
+        <p class="muted" style="margin:16px 0 0;font-size:12px">To update scores: edit <strong>data.js</strong> → push to GitHub → Netlify updates automatically.</p>
+      </section>
+
+      <!-- UPCOMING -->
+      <section class="section">
+        <div class="sectionhead">
+          <div><div class="kicker">Coming up</div><h2>Next tournaments</h2></div>
+          <p>Register early — spots are limited.</p>
+        </div>
+        <div class="grid-3" id="upcoming-events"></div>
+      </section>
+
+      <!-- REGISTRATION -->
+      <section class="section" id="register">
+        <div class="sectionhead">
+          <div><div class="kicker">Enter the arena</div><h2>Register for next event</h2></div>
+          <p>Confirmation comes via Discord / email.</p>
+        </div>
+        <div class="feature">
+          <form class="panel" name="nxt-tournament-reg" method="POST" data-netlify="true" netlify-honeypot="bot-field" style="padding:26px">
+            <input type="hidden" name="form-name" value="nxt-tournament-reg">
+            <p style="display:none"><label>Don't fill: <input name="bot-field"></label></p>
+            <div class="form-group">
+              <label>Full name / Discord name</label>
+              <input type="text" name="name" required placeholder="Your name">
+            </div>
+            <div class="form-group">
+              <label>Gamertag</label>
+              <input type="text" name="gamertag" required placeholder="In-game name">
+            </div>
+            <div class="form-group">
+              <label>Event</label>
+              <select name="event" required>
+                <option value="">Select tournament...</option>
+                
+                <option>TEAZERS FC 26 — Season 1</option>
+                
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Platform</label>
+              <select name="platform">
+                <option>PC</option>
+                <option>PlayStation</option>
+                <option>Xbox</option>
+                <option>Mobile</option>
+              </select>
+            </div>
+            <button type="submit" class="button" style="width:100%;padding:14px">Submit registration ↗</button>
+          </form>
+          <div class="featurebox blue">
+            <div class="tag">Need help?</div>
+            <h3>Join the Discord</h3>
+            <p>Brackets, voice channels, results and announcements drop first in Discord.</p>
+            <a class="button" href="https://discord.gg/Bxsw3Aam2" target="_blank" rel="noreferrer" style="margin-top:12px;background:#071321;color:#fff">Open Discord ↗</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a class="brand" href="index.html">NXT<span>.</span></a>
+      <span>Creators. Competition. Community.</span>
+      <span>© 2026 NXT · South Africa</span>
+    </footer>
+  </div>
+
+  <div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-header"><strong>Your Cart</strong><button class="outline" onclick="closeCart()" style="padding:6px 12px">Close</button></div>
+    <div class="cart-body" id="cart-body"></div>
+    <div class="cart-footer">
+      <div class="cart-total"><span>Total</span><span id="cart-total-value">R 0.00</span></div>
+      <a class="button" href="shop.html#checkout" style="width:100%" onclick="closeCart()">Checkout ↗</a>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

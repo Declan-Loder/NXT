@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Creators — NXT</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="nav">
+      <a class="brand" href="index.html">NXT<span>.</span></a>
+      <nav class="links">
+        <a href="index.html">Home</a>
+        <a href="tournaments.html">Tournaments</a>
+        <a href="creators.html" class="active">Creators</a>
+        <a href="collab.html">Collab</a>
+        <a href="shop.html">Shop</a>
+        <a href="sponsors.html">Sponsors</a>
+      </nav>
+      <div class="navright">
+        <button class="button outline cart-btn" onclick="openCart()">Cart <span class="cart-count" style="display:none">0</span></button>
+        <a class="button" href="https://discord.gg/Bxsw3Aam2" target="_blank" rel="noreferrer">Join Discord ↗</a>
+      </div>
+    </header>
+
+    <main>
+      <div class="page-hero">
+        <div class="kicker">On the roster</div>
+        <h1>Meet the people behind it.</h1>
+        <p class="muted" style="max-width:440px">Starting small. Building something real. More creators will be added as they join.</p>
+      </div>
+
+      <section class="section" style="border-top:none;padding-top:8px">
+        <div class="feature">
+
+          <!-- FOUNDER 1: Teazers_0 -->
+          <div class="featurebox">
+            <div class="creator-photo">
+              <img src="nxt-founder.webp" alt="Teazers_0 — Founder of NXT">
+            </div>
+            <div class="tag">Founder / Creator</div>
+            <h3>Teazers_0</h3>
+            <p>Gaming, community challenges and building NXT live with the people who make it what it is.</p>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+              <a class="button outline" href="https://www.twitch.tv/teazers_0" target="_blank" rel="noreferrer">Twitch ↗</a>
+              <a class="button outline" href="https://discord.gg/Bxsw3Aam2" target="_blank" rel="noreferrer">Discord ↗</a>
+            </div>
+          </div>
+
+          <!-- FOUNDER 2: PLACEHOLDER — replace the text and image below -->
+          <div class="featurebox">
+            <div class="creator-photo" style="background:var(--surface2);display:grid;place-items:center;color:var(--muted);font-size:13px;font-weight:700">
+              <!-- 
+                TO ADD PHOTO LATER:
+                1. Upload image to the same folder (e.g. founder2.webp)
+                2. Replace the whole div above with:
+                   <div class="creator-photo">
+                     <img src="founder2.webp" alt="NAME — Founder of NXT">
+                   </div>
+              -->
+              Photo coming soon
+            </div>
+            <div class="tag">Founder / Creator</div>
+            <h3>FOUNDER NAME HERE</h3>
+            <p>Short bio goes here. Replace this text with 1–2 sentences about them.</p>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+              <a class="button outline" href="#" target="_blank" rel="noreferrer">Twitch ↗</a>
+              <a class="button outline" href="https://discord.gg/Bxsw3Aam2" target="_blank" rel="noreferrer">Discord ↗</a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="sectionhead">
+          <div><div class="kicker">How it works</div><h2>Want to join the roster?</h2></div>
+          <p>We keep the bar high and the culture real.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="cardicon">01</div>
+            <h3>Show up</h3>
+            <p>Be active in Discord, join events, create content, help others.</p>
+          </article>
+          <article class="card">
+            <div class="cardicon">02</div>
+            <h3>Build something</h3>
+            <p>Stream, edit, design, organise, or bring consistent energy.</p>
+          </article>
+          <article class="card">
+            <div class="cardicon">03</div>
+            <h3>Get recognised</h3>
+            <p>Outstanding members get invited onto the official roster.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="banner">
+          <div>
+            <div class="kicker">Ready when you are</div>
+            <h2>Join the movement.</h2>
+            <p>Discord is the front door to everything NXT.</p>
+          </div>
+          <a class="button" href="https://discord.gg/Bxsw3Aam2" target="_blank" rel="noreferrer">Open Discord ↗</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a class="brand" href="index.html">NXT<span>.</span></a>
+      <span>Creators. Competition. Community.</span>
+      <span>© 2026 NXT · South Africa</span>
+    </footer>
+  </div>
+
+  <div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-header"><strong>Your Cart</strong><button class="outline" onclick="closeCart()" style="padding:6px 12px">Close</button></div>
+    <div class="cart-body" id="cart-body"></div>
+    <div class="cart-footer">
+      <div class="cart-total"><span>Total</span><span id="cart-total-value">R 0.00</span></div>
+      <a class="button" href="shop.html#checkout" style="width:100%" onclick="closeCart()">Checkout ↗</a>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>

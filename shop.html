@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shop — NXT Supply</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="nav">
+      <a class="brand" href="index.html">NXT<span>.</span></a>
+      <nav class="links">
+        <a href="index.html">Home</a>
+        <a href="tournaments.html">Tournaments</a>
+        <a href="creators.html">Creators</a>
+        <a href="collab.html">Collab</a>
+        <a href="shop.html" class="active">Shop</a>
+        <a href="sponsors.html">Sponsors</a>
+      </nav>
+      <div class="navright">
+        <button class="button outline cart-btn" onclick="openCart()">Cart <span class="cart-count" style="display:none">0</span></button>
+        <a class="button" href="https://discord.gg/Bxsw3Aam2" target="_blank" rel="noreferrer">Join Discord ↗</a>
+      </div>
+    </header>
+
+    <main>
+      <div class="page-hero">
+        <div class="kicker">NXT Supply</div>
+        <h1>Wear what's next.</h1>
+        <p class="muted" style="max-width:420px">Premium basics. Clean design. Official NXT merch — you order, we fulfil.</p>
+      </div>
+
+      <section class="section" style="border-top:none;padding-top:8px">
+        <div class="storeitems">
+          <article class="product">
+            <div class="productart">NXT</div>
+            <h4>Heavyweight Hoodie</h4>
+            <p>Premium streetwear · Black</p>
+            <div class="price">R 699.00</div>
+            <button class="button add-btn" onclick="addToCart('hoodie','Heavyweight Hoodie',699)">Add to cart</button>
+          </article>
+          <article class="product">
+            <div class="productart">NXT</div>
+            <h4>Everyday Track Pant</h4>
+            <p>Comfort-first fit · Black</p>
+            <div class="price">R 549.00</div>
+            <button class="button add-btn" onclick="addToCart('pants','Everyday Track Pant',549)">Add to cart</button>
+          </article>
+          <article class="product">
+            <div class="productart">NXT</div>
+            <h4>Signature Cap</h4>
+            <p>Structured fit · Black / Lime</p>
+            <div class="price">R 299.00</div>
+            <button class="button add-btn" onclick="addToCart('cap','Signature Cap',299)">Add to cart</button>
+          </article>
+          <article class="product">
+            <div class="productart">NXT</div>
+            <h4>Classic Tee</h4>
+            <p>Heavy cotton · Oversized</p>
+            <div class="price">R 349.00</div>
+            <button class="button add-btn" onclick="addToCart('tee','Classic Tee',349)">Add to cart</button>
+          </article>
+          <article class="product">
+            <div class="productart">NXT</div>
+            <h4>Crewneck Sweat</h4>
+            <p>Soft fleece · Embroidered</p>
+            <div class="price">R 599.00</div>
+            <button class="button add-btn" onclick="addToCart('crew','Crewneck Sweat',599)">Add to cart</button>
+          </article>
+          <article class="product">
+            <div class="productart">NXT</div>
+            <h4>Beanie</h4>
+            <p>Knit · Lime detail</p>
+            <div class="price">R 199.00</div>
+            <button class="button add-btn" onclick="addToCart('beanie','Beanie',199)">Add to cart</button>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="checkout">
+        <div class="sectionhead">
+          <div><div class="kicker">Checkout</div><h2>Complete your order</h2></div>
+          <p>We’ll contact you with payment details (PayFast / EFT / WhatsApp). Then we fulfil and ship.</p>
+        </div>
+
+        <div class="checkout-grid">
+          <!-- Netlify Forms: submissions appear in Netlify dashboard + email -->
+          <form name="nxt-order" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="nxt-order">
+            <p style="display:none"><label>Don’t fill this out: <input name="bot-field"></label></p>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Full name</label>
+                <input type="text" name="name" required placeholder="Your name">
+              </div>
+              <div class="form-group">
+                <label>Phone / WhatsApp</label>
+                <input type="tel" name="phone" required placeholder="+27 ...">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" name="email" required placeholder="you@email.com">
+            </div>
+            <div class="form-group">
+              <label>Delivery address</label>
+              <textarea name="address" rows="3" required placeholder="Street, suburb, city, postal code"></textarea>
+            </div>
+            <div class="form-group">
+              <label>Items ordered (list what you want + sizes)</label>
+              <textarea name="items" rows="3" required placeholder="e.g. Heavyweight Hoodie – Size L ×1, Signature Cap ×1"></textarea>
+            </div>
+            <div class="form-group">
+              <label>Preferred payment</label>
+              <select name="payment" required>
+                <option value="">Select...</option>
+                <option>EFT / Bank transfer</option>
+                <option>PayFast / payment link</option>
+                <option>WhatsApp arrangement</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Notes (optional)</label>
+              <textarea name="notes" rows="2" placeholder="Colour, size notes, etc."></textarea>
+            </div>
+            <button type="submit" class="button" style="width:100%;padding:14px">Place order ↗</button>
+            <p class="muted" style="margin-top:12px;font-size:12px">You will receive a confirmation. We will message you with payment details before fulfilling the order.</p>
+          </form>
+
+          <div class="panel order-summary">
+            <h3 style="margin-top:0">How it works</h3>
+            <ol class="muted" style="font-size:13px;line-height:1.8;padding-left:18px;margin:12px 0">
+              <li>Submit your order</li>
+              <li>We contact you with payment details</li>
+              <li>You pay</li>
+              <li>We place the order with our printer and ship</li>
+              <li>You get tracking</li>
+            </ol>
+            <button class="button outline" style="width:100%;margin-top:10px" onclick="openCart()">View cart</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a class="brand" href="index.html">NXT<span>.</span></a>
+      <span>Creators. Competition. Community.</span>
+      <span>© 2026 NXT · South Africa</span>
+    </footer>
+  </div>
+
+  <div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-header"><strong>Your Cart</strong><button class="outline" onclick="closeCart()" style="padding:6px 12px">Close</button></div>
+    <div class="cart-body" id="cart-body"></div>
+    <div class="cart-footer">
+      <div class="cart-total"><span>Total</span><span id="cart-total-value">R 0.00</span></div>
+      <a class="button" href="#checkout" style="width:100%" onclick="closeCart()">Go to checkout ↗</a>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>

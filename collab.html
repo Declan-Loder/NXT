@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Collab — NXT</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="nav">
+      <a class="brand" href="index.html">NXT<span>.</span></a>
+      <nav class="links">
+        <a href="index.html">Home</a>
+        <a href="tournaments.html">Tournaments</a>
+        <a href="creators.html">Creators</a>
+        <a href="collab.html" class="active">Collab</a>
+        <a href="shop.html">Shop</a>
+        <a href="sponsors.html">Sponsors</a>
+      </nav>
+      <div class="navright">
+        <button class="button outline cart-btn" onclick="openCart()">Cart <span class="cart-count" style="display:none">0</span></button>
+        <a class="button" href="https://discord.gg/Bxsw3Aam2" target="_blank" rel="noreferrer">Join Discord ↗</a>
+      </div>
+    </header>
+
+    <main>
+      <div class="page-hero">
+        <div class="kicker">Work together</div>
+        <h1>Find your next collab.</h1>
+        <p class="muted" style="max-width:440px">Looking for an editor, duo partner, designer, or someone to build with? Post here or jump into Discord.</p>
+      </div>
+
+      <section class="section" style="border-top:none;padding-top:8px">
+        <div class="sectionhead">
+          <div><div class="kicker">Open posts</div><h2>Current collab requests</h2></div>
+          <p>Example posts — real ones will come from the community.</p>
+        </div>
+        <div class="grid-2">
+          <div class="collab-card">
+            <div class="tag" style="color:#75baff">Looking for</div>
+            <h3>Video editor for weekly highlights</h3>
+            <div class="collab-meta">Posted by Teazers_0 · Gaming / Content</div>
+            <p class="muted" style="margin:10px 0 0">Need someone who can cut clean 60–90s clips from VODs. Paid per video once we lock style.</p>
+          </div>
+          <div class="collab-card">
+            <div class="tag" style="color:#75baff">Looking for</div>
+            <h3>Duo partner for ranked grind</h3>
+            <div class="collab-meta">Community · PC</div>
+            <p class="muted" style="margin:10px 0 0">Serious but chill. Evening sessions SAST. Prefer mic + Discord.</p>
+          </div>
+          <div class="collab-card">
+            <div class="tag" style="color:#75baff">Offering</div>
+            <h3>Thumbnail & brand design</h3>
+            <div class="collab-meta">Designer · Available</div>
+            <p class="muted" style="margin:10px 0 0">Clean gaming thumbnails and simple logo work. Happy to trade or paid gigs.</p>
+          </div>
+          <div class="collab-card">
+            <div class="tag" style="color:#75baff">Looking for</div>
+            <h3>Someone to co-host community nights</h3>
+            <div class="collab-meta">Events · Discord</div>
+            <p class="muted" style="margin:10px 0 0">Help run watch parties, mini tournaments and creator chats once a week.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="sectionhead">
+          <div><div class="kicker">Post a request</div><h2>Submit a collab post</h2></div>
+          <p>We’ll review and add it (or you can post directly in Discord).</p>
+        </div>
+        <div class="feature">
+          <form class="panel" name="nxt-collab" method="POST" data-netlify="true" netlify-honeypot="bot-field" style="padding:26px">
+            <input type="hidden" name="form-name" value="nxt-collab">
+            <p style="display:none"><label>Don’t fill: <input name="bot-field"></label></p>
+            <div class="form-group">
+              <label>Your name / Discord</label>
+              <input type="text" name="name" required placeholder="Your name">
+            </div>
+            <div class="form-group">
+              <label>Type</label>
+              <select name="type" required>
+                <option value="">Select...</option>
+                <option>Looking for</option>
+                <option>Offering</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Title</label>
+              <input type="text" name="title" required placeholder="Short title of what you need / offer">
+            </div>
+            <div class="form-group">
+              <label>Details</label>
+              <textarea name="details" rows="4" required placeholder="What you’re looking for or offering..."></textarea>
+            </div>
+            <button type="submit" class="button" style="width:100%;padding:14px">Submit collab post ↗</button>
+          </form>
+          <div class="featurebox blue">
+            <div class="tag">Faster way</div>
+            <h3>Post in Discord</h3>
+            <p>The #collab channel is the quickest place to find people right now. Drop your request there anytime.</p>
+            <a class="button" href="https://discord.gg/Bxsw3Aam2" target="_blank" rel="noreferrer" style="margin-top:12px;background:#071321;color:#fff">Open Discord ↗</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <a class="brand" href="index.html">NXT<span>.</span></a>
+      <span>Creators. Competition. Community.</span>
+      <span>© 2026 NXT · South Africa</span>
+    </footer>
+  </div>
+
+  <div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-header"><strong>Your Cart</strong><button class="outline" onclick="closeCart()" style="padding:6px 12px">Close</button></div>
+    <div class="cart-body" id="cart-body"></div>
+    <div class="cart-footer">
+      <div class="cart-total"><span>Total</span><span id="cart-total-value">R 0.00</span></div>
+      <a class="button" href="shop.html#checkout" style="width:100%" onclick="closeCart()">Checkout ↗</a>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
