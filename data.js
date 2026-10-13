@@ -10,28 +10,28 @@ const tournamentSubtitle = "Free Entry · One Champion · Presented by TEAZERS_0
 // GROUP STANDINGS
 const groups = {
   A: [
-    { pos: 1, player: "tetyush12",        p: 1, w: 1, d: 0, l: 0, gd: "+1",  pts: 3 },
-    { pos: 2, player: "mrmo1406",         p: 0, w: 0, d: 0, l: 0, gd: "0",   pts: 0 },
-    { pos: 3, player: "antisocialicon",   p: 0, w: 0, d: 0, l: 0, gd: "0",   pts: 0 },
-    { pos: 4, player: "LilScooteryard",   p: 1, w: 0, d: 0, l: 1, gd: "-1",  pts: 0 }
+    { pos: 1, player: "antisocialicon",   p: 1, w: 1, d: 0, l: 0, gd: "+3",  pts: 3 },
+    { pos: 2, player: "LilScooteryard",   p: 2, w: 1, d: 0, l: 1, gd: "+2",  pts: 3 },
+    { pos: 3, player: "teiyush12",        p: 2, w: 1, d: 0, l: 1, gd: "-2",  pts: 3 },
+    { pos: 4, player: "mrmo1406",         p: 1, w: 0, d: 0, l: 1, gd: "-3",  pts: 0 }
   ],
   B: [
-    { pos: 1, player: "shajeleussdon",    p: 1, w: 1, d: 0, l: 0, gd: "+3",  pts: 3 },
-    { pos: 2, player: "CreamySuspect",    p: 1, w: 1, d: 0, l: 0, gd: "+3",  pts: 3 },
-    { pos: 3, player: "oknotfound",       p: 1, w: 0, d: 0, l: 1, gd: "-3",  pts: 0 },
-    { pos: 4, player: "Recce231711",      p: 1, w: 0, d: 0, l: 1, gd: "-3",  pts: 0 }
+    { pos: 1, player: "CreamySuspect",    p: 2, w: 2, d: 0, l: 0, gd: "+19", pts: 6 },
+    { pos: 2, player: "shaqlebussdown",   p: 2, w: 1, d: 0, l: 1, gd: "-13", pts: 3 },
+    { pos: 3, player: "oknotfound",       p: 2, w: 0, d: 0, l: 2, gd: "-6",  pts: 0 },
+    { pos: 4, player: "Recce231711",      p: 2, w: 0, d: 0, l: 2, gd: "-6",  pts: 0 }
   ],
   C: [
-    { pos: 1, player: "JustJxred",        p: 1, w: 1, d: 0, l: 0, gd: "+11", pts: 3 },
-    { pos: 2, player: "creamillicious91", p: 1, w: 1, d: 0, l: 0, gd: "+3",  pts: 3 },
-    { pos: 3, player: "kaedryng9",        p: 1, w: 0, d: 0, l: 1, gd: "-3",  pts: 0 },
-    { pos: 4, player: "JoshyMoses",       p: 1, w: 0, d: 0, l: 1, gd: "-11", pts: 0 }
+    { pos: 1, player: "creamilicious91",  p: 2, w: 2, d: 0, l: 0, gd: "+4",  pts: 6 },
+    { pos: 2, player: "JustJxred",        p: 2, w: 1, d: 0, l: 1, gd: "+10", pts: 3 },
+    { pos: 3, player: "kaedryng9",        p: 2, w: 1, d: 0, l: 1, gd: "+3",  pts: 3 },
+    { pos: 4, player: "JoshyMoses",       p: 2, w: 0, d: 0, l: 2, gd: "-17", pts: 0 }
   ],
   D: [
-    { pos: 1, player: "Funnyjump160",     p: 1, w: 1, d: 0, l: 0, gd: "+12", pts: 3 },
-    { pos: 2, player: "jezz_shop1",       p: 1, w: 1, d: 0, l: 0, gd: "+3",  pts: 3 },
-    { pos: 3, player: "slightly-hill24",  p: 1, w: 0, d: 0, l: 1, gd: "-3",  pts: 0 },
-    { pos: 4, player: "20nathan11",       p: 1, w: 0, d: 0, l: 1, gd: "-12", pts: 0 }
+    { pos: 1, player: "jezz_gitau1",      p: 2, w: 2, d: 0, l: 0, gd: "+8",  pts: 6 },
+    { pos: 2, player: "Funnyjump160",     p: 2, w: 1, d: 0, l: 1, gd: "+7",  pts: 3 },
+    { pos: 3, player: "slightly-hill24",  p: 2, w: 0, d: 0, l: 2, gd: "-6",  pts: 0 },
+    { pos: 4, player: "20nathan11",       p: 2, w: 0, d: 0, l: 2, gd: "-15", pts: 0 }
   ]
 };
 
