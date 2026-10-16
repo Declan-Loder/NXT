@@ -10,19 +10,40 @@
   <div class="wrap">
     <header class="nav">
       <a class="brand" href="index.html">NXT<span>.</span></a>
+
       <nav class="links">
-        <a href="index.html">Home</a>
-        <a href="tournaments.html" class="active">Tournaments</a>
+        <a href="index.html" class="active">Home</a>
+        <a href="tournaments.html">Tournaments</a>
         <a href="creators.html">Creators</a>
         <a href="collab.html">Collab</a>
         <a href="shop.html">Shop</a>
         <a href="sponsors.html">Sponsors</a>
       </nav>
+
       <div class="navright">
-        <button class="button outline cart-btn" onclick="openCart()">Cart <span class="cart-count" style="display:none">0</span></button>
+        <button class="button outline cart-btn" onclick="openCart()">
+          Cart <span class="cart-count" style="display:none">0</span>
+        </button>
         <a class="button" href="https://discord.gg/Bxsw3Aam2" target="_blank" rel="noreferrer">Join Discord ↗</a>
+        <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </header>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="tournaments.html" onclick="closeMenu()">Tournaments</a>
+  <a href="creators.html" onclick="closeMenu()">Creators</a>
+  <a href="collab.html" onclick="closeMenu()">Collab</a>
+  <a href="shop.html" onclick="closeMenu()">Shop</a>
+  <a href="sponsors.html" onclick="closeMenu()">Sponsors</a>
+  <div class="mobile-cta">
+    <a class="button" href="https://discord.gg/Bxsw3Aam2" target="_blank" rel="noreferrer">Join Discord ↗</a>
+    <button class="button outline" onclick="closeMenu(); openCart()">Open Cart</button>
+  </div>
+</div>
 
     <main>
       <div class="page-hero">

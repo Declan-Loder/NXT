@@ -74,10 +74,16 @@ function updateCartUI() {
   const sumEl = document.getElementById('checkout-summary');
   const checkTotal = document.getElementById('checkout-total');
   if (sumEl) {
-    if (cart.length === 0) sumEl.innerHTML = 'Your cart is empty.';
-    else sumEl.innerHTML = cart.map(i =>
-      `<div style="display:flex;justify-content:space-between;margin-bottom:6px"><span>${i.name} × ${i.qty}</span><span>R ${(i.price*i.qty).toFixed(2)}</span></div>`
-    ).join('');
+    if (cart.length === 0) {
+      sumEl.innerHTML = 'Your cart is empty.';
+    } else {
+      sumEl.innerHTML = cart.map(i =>
+        `<div style="display:flex;justify-content:space-between;margin-bottom:6px">
+          <span>${i.name} × ${i.qty}</span>
+          <span>R ${(i.price * i.qty).toFixed(2)}</span>
+        </div>`
+      ).join('');
+    }
   }
   if (checkTotal) checkTotal.textContent = 'R ' + cartTotal().toFixed(2);
 }
@@ -103,20 +109,34 @@ function notice(msg) {
   toastTimer = setTimeout(() => t.classList.remove('show'), 3400);
 }
 
-// Render tournament data from data.js
+/* ===== Mobile menu ===== */
+function toggleMenu() {
+  const btn = document.querySelector('.hamburger');
+  const menu = document.getElementById('mobile-menu');
+  btn?.classList.toggle('open');
+  menu?.classList.toggle('open');
+  document.body.style.overflow = menu?.classList.contains('open') ? 'hidden' : '';
+}
+
+function closeMenu() {
+  document.querySelector('.hamburger')?.classList.remove('open');
+  document.getElementById('mobile-menu')?.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* ===== Tournament rendering ===== */
 function renderTournaments() {
-  // Title
   const titleEl = document.getElementById('tournament-title');
   if (titleEl && typeof tournamentTitle !== 'undefined') titleEl.textContent = tournamentTitle;
+
   const subEl = document.getElementById('tournament-subtitle');
   if (subEl && typeof tournamentSubtitle !== 'undefined') subEl.textContent = tournamentSubtitle;
 
-  // Groups A–D
   if (typeof groups !== 'undefined') {
     const container = document.getElementById('groups-container');
     if (container) {
       container.innerHTML = Object.keys(groups).map(g => {
-        const rows = groups[g].map(r =>
+        const rows = groups[g].map((r, idx) =>
           `<tr>
             <td class="rank">${r.pos}</td>
             <td>${r.player}</td>
@@ -144,7 +164,6 @@ function renderTournaments() {
     }
   }
 
-  // Upcoming events
   if (typeof upcomingEvents !== 'undefined') {
     const container = document.getElementById('upcoming-events');
     if (container) {
