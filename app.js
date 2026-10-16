@@ -3,10 +3,10 @@
 const SUPABASE_URL = 'https://sagmjbyrtdindecmeyil.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNhZ21qYnlydGRpbmRlY21leWlsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIxMzQ5NjAsImV4cCI6MjEwNzcxMDk2MH0.i9b_i95IsAn295kiKs9ovGasNzg-knq_XPFxOu59wdc';
 
-// Changed name to avoid conflict
-const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+// Correct way to create the client
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-// ===== CART (unchanged) =====
+// ===== CART =====
 const CART_KEY = 'nxt_cart';
 
 function getCart() {
@@ -116,22 +116,63 @@ function closeMenu() {
   document.body.style.overflow = '';
 }
 
-// ===== LIVE TOURNAMENTS =====
+// ===== GROUP STANDINGS (from data.js) =====
+function renderTournaments() {
+  const titleEl = document.getElementById('tournament-title');
+  if (titleEl && typeof tournamentTitle !== 'undefined') titleEl.textContent = tournamentTitle;
+
+  const subEl = document.getElementById('tournament-subtitle');
+  if (subEl && typeof tournamentSubtitle !== 'undefined') subEl.textContent = tournamentSubtitle;
+
+  if (typeof groups !== 'undefined') {
+    const container = document.getElementById('groups-container');
+    if (container) {
+      container.innerHTML = Object.keys(groups).map(g => {
+        const rows = groups[g].map(r =>
+          `<tr>
+            <td class="rank">${r.pos}</td>
+            <td>${r.player}</td>
+            <td>${r.p}</td>
+            <td>${r.w}</td>
+            <td>${r.d}</td>
+            <td>${r.l}</td>
+            <td>${r.gd}</td>
+            <td><strong>${r.pts}</strong></td>
+          </tr>`
+        ).join('');
+        return `
+          <div class="panel" style="overflow-x:auto;margin-bottom:0">
+            <div style="font-size:13px;font-weight:900;letter-spacing:1px;color:#75baff;margin-bottom:10px">GROUP ${g}</div>
+            <table class="standings-table">
+              <thead>
+                <tr>
+                  <th>Pos</th><th>Player</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GD</th><th>Pts</th>
+                </tr>
+              </thead>
+              <tbody>${rows}</tbody>
+            </table>
+          </div>`;
+      }).join('');
+    }
+  }
+}
+
+// ===== LIVE TOURNAMENTS (Supabase) =====
 async function loadTournaments() {
   const container = document.getElementById('live-tournaments');
   if (!container) return;
 
   container.innerHTML = '<p class="muted">Loading tournaments...</p>';
 
-  const { data: tournaments, error } = await supabase
+  const { data: tournaments, error } = await supabaseClient
     .from('tournaments')
     .select('*')
     .eq('status', 'open')
     .order('date', { ascending: true });
 
   if (error) {
-    console.error(error);
-    container.innerHTML = '<p class="muted">Could not load tournaments.</p>';
+    console.error('Supabase error:', error);
+    container.innerHTML = '<p class="muted">Could not load tournaments. Check console.</p>';
     return;
   }
 
@@ -141,7 +182,7 @@ async function loadTournaments() {
   }
 
   // Get registration counts
-  const { data: regs } = await supabase
+  const { data: regs } = await supabaseClient
     .from('registrations')
     .select('tournament_id');
 
@@ -178,10 +219,9 @@ async function loadTournaments() {
 
 function selectTournament(id, name) {
   const select = document.getElementById('tournament-select');
-  if (select) {
-    select.value = id;
-  }
-  document.getElementById('selected-tournament-name').textContent = name;
+  if (select) select.value = id;
+  const nameEl = document.getElementById('selected-tournament-name');
+  if (nameEl) nameEl.textContent = name;
 }
 
 // ===== REGISTRATION =====
@@ -204,7 +244,7 @@ async function handleRegistration(e) {
     return;
   }
 
-  const { error } = await supabase
+  const { error } = await supabaseClient
     .from('registrations')
     .insert({
       tournament_id: Number(tournamentId),
@@ -224,7 +264,7 @@ async function handleRegistration(e) {
   notice('Successfully registered! See you in the tournament.');
   form.reset();
   document.getElementById('selected-tournament-name').textContent = 'Select a tournament above';
-  loadTournaments(); // refresh counts
+  loadTournaments();
   btn.disabled = false;
   btn.textContent = 'Submit Registration ↗';
 }
@@ -232,7 +272,8 @@ async function handleRegistration(e) {
 // ===== INIT =====
 document.addEventListener('DOMContentLoaded', () => {
   updateCartUI();
-  loadTournaments();
+  renderTournaments();   // Group standings
+  loadTournaments();     // Live free tournaments
 
   const form = document.getElementById('registration-form');
   if (form) form.addEventListener('submit', handleRegistration);
