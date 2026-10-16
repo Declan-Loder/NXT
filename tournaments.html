@@ -47,21 +47,36 @@
     <main>
       <div class="page-hero">
         <div class="kicker">Competition</div>
-        <h1>Live Tournaments</h1>
-        <p class="muted" style="max-width:480px">Free entry. Real competition. Register below and secure your spot.</p>
+        <h1 id="tournament-title">TEAZERS FC 26 — Group Standings · Season 1</h1>
+        <p class="muted" id="tournament-subtitle" style="max-width:480px">Free Entry · One Champion · Presented by TEAZERS_0</p>
       </div>
 
-      <!-- LIVE TOURNAMENTS -->
+      <!-- GROUP STANDINGS (still ongoing) -->
       <section class="section" style="border-top:none;padding-top:8px">
         <div class="sectionhead">
           <div>
-            <div class="kicker">Open now</div>
-            <h2>Available tournaments</h2>
+            <div class="kicker">Season 1 · Ongoing</div>
+            <h2>Group standings</h2>
           </div>
           <span class="live-badge">Live</span>
         </div>
+        <div class="grid-2" id="groups-container" style="gap:16px">
+          <!-- Groups A–D rendered by app.js from data.js -->
+        </div>
+        <p class="muted" style="margin:16px 0 0;font-size:12px">To update scores: edit <strong>data.js</strong> → push to GitHub.</p>
+      </section>
+
+      <!-- NEW LIVE FREE TOURNAMENTS -->
+      <section class="section">
+        <div class="sectionhead">
+          <div>
+            <div class="kicker">New · Free Entry</div>
+            <h2>Open tournaments</h2>
+          </div>
+          <span class="live-badge">Live registrations</span>
+        </div>
         <div class="grid-3" id="live-tournaments">
-          <!-- Loaded by app.js -->
+          <!-- Loaded by Supabase -->
         </div>
       </section>
 
@@ -131,6 +146,7 @@
   </div>
   <div class="toast" id="toast" role="status"></div>
 
+  <script src="data.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
