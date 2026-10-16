@@ -5,21 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tournaments — NXT</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
   <div class="wrap">
     <header class="nav">
       <a class="brand" href="index.html">NXT<span>.</span></a>
-
       <nav class="links">
-        <a href="index.html" class="active">Home</a>
-        <a href="tournaments.html">Tournaments</a>
+        <a href="index.html">Home</a>
+        <a href="tournaments.html" class="active">Tournaments</a>
         <a href="creators.html">Creators</a>
         <a href="collab.html">Collab</a>
         <a href="shop.html">Shop</a>
         <a href="sponsors.html">Sponsors</a>
       </nav>
-
       <div class="navright">
         <button class="button outline cart-btn" onclick="openCart()">
           Cart <span class="cart-count" style="display:none">0</span>
@@ -31,19 +30,19 @@
       </div>
     </header>
 
-<!-- Mobile menu -->
-<div class="mobile-menu" id="mobile-menu">
-  <a href="index.html" onclick="closeMenu()">Home</a>
-  <a href="tournaments.html" onclick="closeMenu()">Tournaments</a>
-  <a href="creators.html" onclick="closeMenu()">Creators</a>
-  <a href="collab.html" onclick="closeMenu()">Collab</a>
-  <a href="shop.html" onclick="closeMenu()">Shop</a>
-  <a href="sponsors.html" onclick="closeMenu()">Sponsors</a>
-  <div class="mobile-cta">
-    <a class="button" href="https://discord.gg/Bxsw3Aam2" target="_blank" rel="noreferrer">Join Discord ↗</a>
-    <button class="button outline" onclick="closeMenu(); openCart()">Open Cart</button>
-  </div>
-</div>
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="index.html" onclick="closeMenu()">Home</a>
+      <a href="tournaments.html" onclick="closeMenu()">Tournaments</a>
+      <a href="creators.html" onclick="closeMenu()">Creators</a>
+      <a href="collab.html" onclick="closeMenu()">Collab</a>
+      <a href="shop.html" onclick="closeMenu()">Shop</a>
+      <a href="sponsors.html" onclick="closeMenu()">Sponsors</a>
+      <div class="mobile-cta">
+        <a class="button" href="https://discord.gg/Bxsw3Aam2" target="_blank" rel="noreferrer">Join Discord ↗</a>
+        <button class="button outline" onclick="closeMenu(); openCart()">Open Cart</button>
+      </div>
+    </div>
 
     <main>
       <div class="page-hero">
@@ -52,57 +51,59 @@
         <p class="muted" id="tournament-subtitle" style="max-width:480px">Free Entry · One Champion · Presented by TEAZERS_0</p>
       </div>
 
-      <!-- GROUP STANDINGS -->
+      <!-- GROUP STANDINGS (still ongoing) -->
       <section class="section" style="border-top:none;padding-top:8px">
         <div class="sectionhead">
           <div>
-            <div class="kicker">Season 1</div>
+            <div class="kicker">Season 1 · Ongoing</div>
             <h2>Group standings</h2>
           </div>
-          <span class="live-badge">Live from data.js</span>
+          <span class="live-badge">Live</span>
         </div>
         <div class="grid-2" id="groups-container" style="gap:16px">
-          <!-- Groups A–D rendered by app.js -->
+          <!-- Groups A–D rendered by app.js from data.js -->
         </div>
-        <p class="muted" style="margin:16px 0 0;font-size:12px">To update scores: edit <strong>data.js</strong> → push to GitHub → Netlify updates automatically.</p>
+        <p class="muted" style="margin:16px 0 0;font-size:12px">To update scores: edit <strong>data.js</strong> → push to GitHub.</p>
       </section>
 
-      <!-- UPCOMING -->
+      <!-- NEW LIVE FREE TOURNAMENTS -->
       <section class="section">
         <div class="sectionhead">
-          <div><div class="kicker">Coming up</div><h2>Next tournaments</h2></div>
-          <p>Register early — spots are limited.</p>
+          <div>
+            <div class="kicker">New · Free Entry</div>
+            <h2>Open tournaments</h2>
+          </div>
+          <span class="live-badge">Live registrations</span>
         </div>
-        <div class="grid-3" id="upcoming-events"></div>
+        <div class="grid-3" id="live-tournaments">
+          <!-- Loaded by Supabase -->
+        </div>
       </section>
 
       <!-- REGISTRATION -->
       <section class="section" id="register">
         <div class="sectionhead">
-          <div><div class="kicker">Enter the arena</div><h2>Register for next event</h2></div>
-          <p>Confirmation comes via Discord / email.</p>
+          <div>
+            <div class="kicker">Enter the arena</div>
+            <h2>Register for free</h2>
+          </div>
+          <p>Selected: <strong id="selected-tournament-name">Select a tournament above</strong></p>
         </div>
-        <div class="feature">
-          <form class="panel" name="nxt-tournament-reg" method="POST" data-netlify="true" netlify-honeypot="bot-field" style="padding:26px">
-            <input type="hidden" name="form-name" value="nxt-tournament-reg">
-            <p style="display:none"><label>Don't fill: <input name="bot-field"></label></p>
+
+        <div class="grid-2">
+          <form id="registration-form" class="panel">
+            <input type="hidden" name="tournament_id" id="tournament-select" required>
+
             <div class="form-group">
               <label>Full name / Discord name</label>
-              <input type="text" name="name" required placeholder="Your name">
+              <input type="text" name="player_name" required placeholder="Your name">
             </div>
+
             <div class="form-group">
               <label>Gamertag</label>
               <input type="text" name="gamertag" required placeholder="In-game name">
             </div>
-            <div class="form-group">
-              <label>Event</label>
-              <select name="event" required>
-                <option value="">Select tournament...</option>
-                
-                <option>TEAZERS FC 26 — Season 1</option>
-                
-              </select>
-            </div>
+
             <div class="form-group">
               <label>Platform</label>
               <select name="platform">
@@ -112,13 +113,16 @@
                 <option>Mobile</option>
               </select>
             </div>
-            <button type="submit" class="button" style="width:100%;padding:14px">Submit registration ↗</button>
+
+            <button type="submit" class="button" style="width:100%;padding:14px">Submit Registration ↗</button>
+            <p class="muted" style="margin-top:12px;font-size:12px">Free entry. You’ll get confirmation and details in Discord.</p>
           </form>
-          <div class="featurebox blue">
+
+          <div class="featurebox">
             <div class="tag">Need help?</div>
             <h3>Join the Discord</h3>
             <p>Brackets, voice channels, results and announcements drop first in Discord.</p>
-            <a class="button" href="https://discord.gg/Bxsw3Aam2" target="_blank" rel="noreferrer" style="margin-top:12px;background:#071321;color:#fff">Open Discord ↗</a>
+            <a class="button" href="https://discord.gg/Bxsw3Aam2" target="_blank" rel="noreferrer" style="margin-top:12px">Open Discord ↗</a>
           </div>
         </div>
       </section>
@@ -141,6 +145,7 @@
     </div>
   </div>
   <div class="toast" id="toast" role="status"></div>
+
   <script src="data.js"></script>
   <script src="app.js"></script>
 </body>
