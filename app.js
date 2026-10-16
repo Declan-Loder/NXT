@@ -3,7 +3,8 @@
 const SUPABASE_URL = 'https://sagmjbyrtdindecmeyil.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNhZ21qYnlydGRpbmRlY21leWlsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIxMzQ5NjAsImV4cCI6MjEwNzcxMDk2MH0.i9b_i95IsAn295kiKs9ovGasNzg-knq_XPFxOu59wdc';
 
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+// Changed name to avoid conflict
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // ===== CART (unchanged) =====
 const CART_KEY = 'nxt_cart';
